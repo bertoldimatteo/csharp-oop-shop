@@ -18,7 +18,7 @@ firstProduct.MakeVAT(25);
 
 //codice visibile in lettura
 Console.WriteLine($"Nome completo del prodotto compreso di codice : {firstProduct.CompleteName()}");
-Console.WriteLine($"Il codide del prodotto: {firstProduct.ProductCode()}");
+Console.WriteLine($"Il codide del prodotto: {firstProduct.GenerateCodeProduct().ToString("D8")}");
 Console.WriteLine($"Il nome del prodotto: {firstProduct.ProductName()}");
 Console.WriteLine($"La descrizione del prodotto: {firstProduct.ProductDescription()}");
 Console.WriteLine($"Il prezzo del prodotto senza IVA: {firstProduct.ProductPrice()}");
@@ -36,7 +36,7 @@ public class Product
 
     public Product()
     {
-        code = new Random().Next(1,9999);
+        
     }
 
     public void MakeName(string name)
@@ -77,6 +77,10 @@ public class Product
         return this.vat;
     }
 
+    public int GenerateCodeProduct()
+    {
+        return code = new Random().Next(1, 999999999);
+    }
     public double TotalPrice()
     {
         return (ProductPrice() * ProductVAT()) / 100 + ProductPrice();
