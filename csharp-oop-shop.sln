@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32901.215
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csharp-oop-shop", "csharp-oop-shop.csproj", "{D1257AC7-8E13-45C7-8AB4-7D701A5C51D3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D1257AC7-8E13-45C7-8AB4-7D701A5C51D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1257AC7-8E13-45C7-8AB4-7D701A5C51D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1257AC7-8E13-45C7-8AB4-7D701A5C51D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1257AC7-8E13-45C7-8AB4-7D701A5C51D3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B4FEC6A4-55B2-4CBB-9CDA-5F6A4803A4C4}
+	EndGlobalSection
+EndGlobal
