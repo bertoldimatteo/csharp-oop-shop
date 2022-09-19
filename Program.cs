@@ -79,7 +79,7 @@ public class Product
 
     public int GenerateCodeProduct()
     {
-        return code = new Random().Next(1, 999999999);
+        return code = new Random().Next(1, 99999999);
     }
     public double TotalPrice()
     {
