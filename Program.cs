@@ -7,40 +7,72 @@
 using System;
 using System.Security.Cryptography;
 
-Product firstProduct = new Product(19.50, 25);
+Product firstProduct = new Product();
 
 //codice visibile in scrittura
-firstProduct.name = "test1";
-firstProduct.description = "lorem ipsum";
-firstProduct.price = 19.50;
-firstProduct.vat = 25;
+firstProduct.MakeName("test1");
+firstProduct.MakeDescription("lorem ipsum");
+firstProduct.MakePrice(17.50);
+firstProduct.MakeVAT(25);
+
 
 //codice visibile in lettura
-Console.WriteLine($"Il codide del prodotto: {firstProduct.code}");
-Console.WriteLine($"Il nome del prodotto: {firstProduct.name}");
-Console.WriteLine($"La descrizione del prodotto: {firstProduct.description}");
-Console.WriteLine($"Il prezzo del prodotto senza IVA: {firstProduct.price}");
-Console.WriteLine($"IVA da applicare al prodotto: {firstProduct.vat}");
-Console.WriteLine($"Prezzo finale prodotto compreso di IVA: {firstProduct.priceVat}");
+Console.WriteLine($"Il codide del prodotto: {firstProduct.ProductCode()}");
+Console.WriteLine($"Il nome del prodotto: {firstProduct.ProductName()}");
+Console.WriteLine($"La descrizione del prodotto: {firstProduct.ProductDescription()}");
+Console.WriteLine($"Il prezzo del prodotto senza IVA: {firstProduct.ProductPrice()}");
+Console.WriteLine($"IVA da applicare al prodotto: {firstProduct.ProductVAT()}");
 
 public class Product
 {
-    public int code;
-    public string name;
-    public string description;
-    public double price;
-    public int vat;
-    public double priceVat;
+    int code;
+    string name;
+    string description;
+    double price;
+    int vat;
+    double priceVat;
 
-    public Product(double price, int vat)
+    public Product()
     {
-        code = new Random().Next(1,9);
+        code = new Random().Next(1,9999);
+    }
 
+    public void MakeName(string name)
+    {
+       this.name = name;
+    }
+    public void MakeDescription(string description)
+    {
+        this.description = description;
+    }
+    public void MakePrice(double price)
+    {
         this.price = price;
+    }
+    public void MakeVAT(int vat)
+    {
         this.vat = vat;
-        double calculation = (price * vat) / 100;
-        double totalResult = price + calculation;
-        this.priceVat = totalResult;
+    }
+
+    public int ProductCode()
+    {
+        return this.code;
+    }
+    public string ProductName()
+    {
+        return this.name;
+    }
+    public string ProductDescription()
+    {
+        return this.description;
+    }
+    public double ProductPrice()
+    {
+        return this.price;
+    }
+    public int ProductVAT()
+    {
+        return this.vat;
     }
 }
 
