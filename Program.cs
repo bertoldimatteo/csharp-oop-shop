@@ -7,7 +7,7 @@
 using System;
 using System.Security.Cryptography;
 
-Product firstProduct = new Product();
+Product firstProduct = new Product(19.50, 25);
 
 //codice visibile in scrittura
 firstProduct.name = "test1";
@@ -20,7 +20,7 @@ Console.WriteLine($"Il codide del prodotto: {firstProduct.code}");
 Console.WriteLine($"Il nome del prodotto: {firstProduct.name}");
 Console.WriteLine($"La descrizione del prodotto: {firstProduct.description}");
 Console.WriteLine($"Il prezzo del prodotto senza IVA: {firstProduct.price}");
-Console.WriteLine($"IVA da applicare al prodotto: {firstProduct.code}");
+Console.WriteLine($"IVA da applicare al prodotto: {firstProduct.vat}");
 Console.WriteLine($"Prezzo finale prodotto compreso di IVA: {firstProduct.priceVat}");
 
 public class Product
@@ -29,22 +29,18 @@ public class Product
     public string name;
     public string description;
     public double price;
-    public double vat;
+    public int vat;
     public double priceVat;
 
-    public Product()
+    public Product(double price, int vat)
     {
         code = new Random().Next(1,9);
-    }
 
-    public int totalPrice(int price, int vat)
-    {
         this.price = price;
         this.vat = vat;
-        int calculation = (price * vat) / 100;
-        int totalPrice = price + calculation;
-        
-        return totalPrice;
+        double calculation = (price * vat) / 100;
+        double totalResult = price + calculation;
+        this.priceVat = totalResult;
     }
 }
 
