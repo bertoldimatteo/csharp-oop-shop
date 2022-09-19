@@ -17,11 +17,13 @@ firstProduct.MakeVAT(25);
 
 
 //codice visibile in lettura
+Console.WriteLine($"Nome completo del prodotto compreso di codice : {firstProduct.CompleteName()}");
 Console.WriteLine($"Il codide del prodotto: {firstProduct.ProductCode()}");
 Console.WriteLine($"Il nome del prodotto: {firstProduct.ProductName()}");
 Console.WriteLine($"La descrizione del prodotto: {firstProduct.ProductDescription()}");
 Console.WriteLine($"Il prezzo del prodotto senza IVA: {firstProduct.ProductPrice()}");
 Console.WriteLine($"IVA da applicare al prodotto: {firstProduct.ProductVAT()}");
+Console.WriteLine($"Il prezzo compreso di IVA è di : {firstProduct.TotalPrice()}");
 
 public class Product
 {
@@ -73,6 +75,16 @@ public class Product
     public int ProductVAT()
     {
         return this.vat;
+    }
+
+    public double TotalPrice()
+    {
+        return (ProductPrice() * ProductVAT()) / 100 + ProductPrice();
+    }
+
+    public string CompleteName()
+    {
+        return ProductCode() + " " + ProductName();
     }
 }
 
