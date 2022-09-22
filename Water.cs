@@ -52,6 +52,13 @@ class Water: Product
         }
     }
 
+    public void gallonConversion(double liters)
+    {
+        double gallon = 3.785;
+        double converted = gallon * liters;
+        Console.WriteLine($"Hai inserito {liters} litri, convertito in galloni ottieni {converted}");
+    }
+
     public override void CompleteName()
     {
         Console.WriteLine($"Il codice del prodotto è:{code}");

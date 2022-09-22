@@ -8,4 +8,6 @@ acquaPanna.drink(0.25);
 Console.WriteLine();
 acquaPanna.fill(0.10);
 Console.WriteLine();
+acquaPanna.gallonConversion(0.25);
+Console.WriteLine();
 acquaPanna.empty();
