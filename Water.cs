@@ -2,7 +2,6 @@
 
 class Water: Product 
 {
-    public int code { get; set; }
     public double liters { get; set; }
     public int ph { get; }
     public string source { get; }
@@ -15,19 +14,13 @@ class Water: Product
         this.source = source;
     }
 
-    public override int GenerateCodeProduct()
-    {
-        int randomCode = new Random().Next(1, 99999999);
-        code += randomCode;
-        return code;
-    }
-
     public void drink(double litersToDrink)
     {
         currentLiters = maxLiters;
+
         if (currentLiters > 0) {
             currentLiters = maxLiters - litersToDrink;
-            Console.WriteLine($"Hai bevuto{litersToDrink} la bottiglia ha ancora {currentLiters} litri");
+            Console.WriteLine($"Hai bevuto {litersToDrink} la bottiglia ha ancora {currentLiters} litri");
         }else
         {
             Console.WriteLine("E' finita l'acqua");
@@ -39,7 +32,9 @@ class Water: Product
         if(currentLiters < maxLiters && currentLiters > 0)
         {
             currentLiters += liters;
-        }else
+            Console.WriteLine($"Hai rimpieto la bottiglia con {liters} litri, la bottiglia ora ha {currentLiters} litri");
+        }
+        else
         {
             Console.WriteLine("La bottiglia d'acqua è piena");
         }
@@ -50,6 +45,7 @@ class Water: Product
         if(currentLiters > 0)
         {
             currentLiters = 0;
+            Console.WriteLine("Hai svuotato la bottiglia");
         } else
         {
             Console.WriteLine("La bottiglia di acqua è gia vuota");

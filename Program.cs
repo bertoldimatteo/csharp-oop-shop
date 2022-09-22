@@ -5,3 +5,7 @@ Water acquaPanna = new Water("Acqua Panna", "Acqua del Borneo", 1.75, 25, 7, "Fo
 acquaPanna.CompleteName();
 Console.WriteLine();
 acquaPanna.drink(0.25);
+Console.WriteLine();
+acquaPanna.fill(0.10);
+Console.WriteLine();
+acquaPanna.empty();

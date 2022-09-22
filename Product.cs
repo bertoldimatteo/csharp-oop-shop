@@ -2,7 +2,7 @@
 
 class Product
 {
-    public int code { get; set; }
+    public int code { get; set; } = new Random().Next(1, 99999999);
     public string name { get; set; }
     public string description { get; set; }
     public double price { get; set; }
@@ -16,12 +16,6 @@ class Product
         this.vat = vat;
     }
 
-    public virtual int GenerateCodeProduct()
-    {
-        int randomCode = new Random().Next(1, 99999999);
-        code += randomCode;
-        return code;
-    }
     public double TotalPrice()
     {
         return (price * vat) / 100 + price;
