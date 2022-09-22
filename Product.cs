@@ -8,18 +8,19 @@ class Product
     public double price { get; set; }
     public int vat { get; set; }
 
-    public Product(int code, string name, string description, double price, int vat)
+    public Product(string name, string description, double price, int vat)
     {
-        this.code = code;
         this.name = name;
         this.description = description;
         this.price = price;
         this.vat = vat;
     }
 
-    public int GenerateCodeProduct()
+    public virtual int GenerateCodeProduct()
     {
-        return code = new Random().Next(1, 99999999);
+        int randomCode = new Random().Next(1, 99999999);
+        code += randomCode;
+        return code;
     }
     public double TotalPrice()
     {
@@ -28,6 +29,7 @@ class Product
 
     public virtual void CompleteName()
     {
-        Console.WriteLine($"Il codice del prodotto è:{code}, il nome del prodotto è:{name}");
+        Console.WriteLine($"Il codice del prodotto è:{code}");
+        Console.WriteLine($"Il nome del prodotto è:{name}");
     }
 }

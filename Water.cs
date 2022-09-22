@@ -2,17 +2,24 @@
 
 class Water: Product 
 {
+    public int code { get; set; }
     public double liters { get; set; }
     public int ph { get; }
     public string source { get; }
     private double maxLiters { get; set; } = 1.5;
     private double currentLiters { get; set; } = 0;
 
-    public Water(int code, string name, string description, double price, int vat, double liters, int ph, string source): base(code, name, description, price, vat)
+    public Water(string name, string description, double price, int vat, int ph, string source): base(name, description, price, vat)
     {
-        this.liters = liters;
         this.ph = ph;
         this.source = source;
+    }
+
+    public override int GenerateCodeProduct()
+    {
+        int randomCode = new Random().Next(1, 99999999);
+        code += randomCode;
+        return code;
     }
 
     public void drink(double litersToDrink)
