@@ -7,7 +7,7 @@ class Water: Product
     public int ph { get; }
     public string source { get; }
     private double maxLiters { get; set; } = 1.5;
-    private double currentLiters { get; set; } = 0;
+    private double currentLiters { get; set; }
 
     public Water(string name, string description, double price, int vat, int ph, string source): base(name, description, price, vat)
     {
@@ -24,8 +24,10 @@ class Water: Product
 
     public void drink(double litersToDrink)
     {
-        if (liters > 0) {
+        currentLiters = maxLiters;
+        if (currentLiters > 0) {
             currentLiters = maxLiters - litersToDrink;
+            Console.WriteLine($"Hai bevuto{litersToDrink} la bottiglia ha ancora {currentLiters} litri");
         }else
         {
             Console.WriteLine("E' finita l'acqua");
