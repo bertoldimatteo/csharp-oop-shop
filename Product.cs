@@ -26,27 +26,8 @@ class Product
         return (price * vat) / 100 + price;
     }
 
-    public string CompleteName()
+    public virtual void CompleteName()
     {
-        return code + " " + name;
-    }
-}
-
-class Water: Product 
-{
-    public double liters { get; set; }
-    public int ph { get; }
-    public string source { get; }
-
-    public Water(int code, string name, string description, double price, int vat, double liters, int ph, string source): base(code, name, description, price, vat)
-    {
-        this.liters = liters;
-        this.ph = ph;
-        this.source = source;
-    }
-
-    public double drink(double litersToDrink)
-    {
-        return liters - litersToDrink;
+        Console.WriteLine($"Il codice del prodotto è:{code}, il nome del prodotto è:{name}");
     }
 }
