@@ -29,12 +29,15 @@ class Water: Product
 
     public void fill(double liters)
     {
-        if(currentLiters < maxLiters && currentLiters > 0)
+        if(currentLiters > 0 && currentLiters < maxLiters)
         {
             currentLiters += liters;
             Console.WriteLine($"Hai rimpieto la bottiglia con {liters} litri, la bottiglia ora ha {currentLiters} litri");
         }
-        else
+        else if (currentLiters == 0)
+        {
+            Console.WriteLine("La bottiglia d'acqua è vuota");
+        }else if (currentLiters == maxLiters)
         {
             Console.WriteLine("La bottiglia d'acqua è piena");
         }
